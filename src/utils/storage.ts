@@ -59,11 +59,14 @@ export function loadSettings(): LevelingSettings {
   return { ...DEFAULT_SETTINGS };
 }
 
-export function resetProgress(): void {
+/**
+ * Сбрасывает прогресс для указанной версии игры.
+ * По умолчанию сбрасывает прогресс для 'poe2'.
+ */
+export function resetProgress(gameVersion: GameVersion = 'poe2'): void {
   try {
-    localStorage.removeItem(PROGRESS_KEY);
+    localStorage.removeItem(`${PROGRESS_KEY_PREFIX}${gameVersion}`);
   } catch (error) {
     console.error('Failed to reset progress:', error);
   }
 }
-
