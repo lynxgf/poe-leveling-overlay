@@ -1,8 +1,8 @@
 import type { LevelingData } from '../types/leveling';
 import type { GameVersion } from './storage';
 
-let cachedDataPoe1: LevelingData | null = null;
-let cachedDataPoe2: LevelingData | null = null;
+let cachedDataPoe1: LevelingData | undefined;
+let cachedDataPoe2: LevelingData | undefined;
 
 export async function loadLevelingData(gameVersion: GameVersion = 'poe2'): Promise<LevelingData> {
   // Check cache first
@@ -18,11 +18,11 @@ export async function loadLevelingData(gameVersion: GameVersion = 'poe2'): Promi
     
     if (gameVersion === 'poe1') {
       data = await import('../data/leveling-data-poe1-v2.json');
-      cachedDataPoe1 = data.default || data;
+      cachedDataPoe1 = (data.default || data) as LevelingData;
       return cachedDataPoe1;
     } else {
       data = await import('../data/leveling-data-poe2-v2.json');
-      cachedDataPoe2 = data.default || data;
+      cachedDataPoe2 = (data.default || data) as LevelingData;
       return cachedDataPoe2;
     }
   } catch (error) {
@@ -31,12 +31,11 @@ export async function loadLevelingData(gameVersion: GameVersion = 'poe2'): Promi
   }
 }
 
-export function getCachedData(gameVersion: GameVersion = 'poe2'): LevelingData | null {
+export function getCachedData(gameVersion: GameVersion = 'poe2'): LevelingData | undefined {
   return gameVersion === 'poe1' ? cachedDataPoe1 : cachedDataPoe2;
 }
 
 export function clearCache(): void {
-  cachedDataPoe1 = null;
-  cachedDataPoe2 = null;
+  cachedDataPoe1 = undefined;
+  cachedDataPoe2 = undefined;
 }
-

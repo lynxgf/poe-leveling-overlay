@@ -163,7 +163,7 @@ const StepCard: React.FC<StepCardProps> = ({
           </div>
         </div>
 
-        {step.hint && (
+        {showHints && step.hint && (
           <div
             style={{
               position: 'absolute',
@@ -223,17 +223,17 @@ const StepCard: React.FC<StepCardProps> = ({
                     whiteSpace: 'normal',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: '#FFD699', fontWeight: 600, fontSize: '15px', borderBottom: '1px solid rgba(255, 200, 100, 0.2)', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: '#FFD699', fontWeight: 600, fontSize: '15px', borderBottom: '1px solid rgba(255, 200, 100, 0.12)'}}>
                     💡 Подсказка
                   </div>
-                  {translateHint(step.hint)}
+                  {translateHint(step.hint!)}
                 </div>
               )}
             </div>
           </div>
         )}
 
-        {step.layoutTip && (
+        {showHints && step.layoutTip && (
           <div
             style={{
               position: 'absolute',
@@ -293,10 +293,10 @@ const StepCard: React.FC<StepCardProps> = ({
                     whiteSpace: 'normal',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: '#F0B866', fontWeight: 600, fontSize: '15px', borderBottom: '1px solid rgba(240, 184, 102, 0.2)', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: '#F0B866', fontWeight: 600, fontSize: '15px', borderBottom: '1px solid rgba(240, 184, 102, 0.12)'}}>
                     🗺️ Совет по карте
                   </div>
-                  {translateLayoutTip(step.layoutTip)}
+                  {translateLayoutTip(step.layoutTip!)}
                 </div>
               )}
             </div>

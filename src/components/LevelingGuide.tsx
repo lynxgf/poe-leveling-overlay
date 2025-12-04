@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import type { LevelingStep, LevelingAct, GroupedStep } from '../types/leveling';
 import { loadLevelingData, clearCache } from '../utils/dataLoader';
-import { loadProgress, saveProgress, loadSettings, saveSettings, type GameVersion } from '../utils/storage';
+import { loadProgress, saveProgress, loadSettings, saveSettings } from '../utils/storage';
 import StepCard from './StepCard';
 import ZoneGroup from './ZoneGroup';
 import ProgressBar from './ProgressBar';
@@ -678,5 +678,3 @@ const LevelingGuide: React.FC = () => {
 };
 
 export default LevelingGuide;
-
-
