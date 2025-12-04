@@ -253,7 +253,7 @@ const LevelingGuide: React.FC = () => {
               WebkitTextFillColor: 'initial',
               filter: 'drop-shadow(0 0 8px rgba(240, 184, 102, 0.5))',
             }}>⚡</span>
-            Path of Exile Leveling Guide
+            PoE Leveling by LynXGF
           </h1>
           <div style={{
             fontSize: '14px',
